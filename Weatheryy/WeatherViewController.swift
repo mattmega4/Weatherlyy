@@ -18,27 +18,41 @@ class WeatherViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var currentWeather = CurrentWeather()
+  var currentWeather: CurrentWeather!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
-
+    
     self.tableView.delegate = self
     self.tableView.dataSource = self
+    
+    currentWeather = CurrentWeather()
+    currentWeather.downloadWeatherDetails {
+      self.updateMainUI()
+    }
     
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+  }
+  
+  func updateMainUI() {
     
-    currentWeather.downloadWeatherDetails {
-      //
-    }
+    dateLabel.text = currentWeather.date
+    currentTempLabel.text = "\(currentWeather.currentTemp)"
+    currentWeatherLabel.text = currentWeather.weatherType
+    locationLabel.text = currentWeather.cityName
+    
+    
+    //    currentWeatherImageView.image = UIImage.init(named: currentWeather.weatherType)
     
   }
   
-
+  
+  
+  
 } // End of Class
 
 

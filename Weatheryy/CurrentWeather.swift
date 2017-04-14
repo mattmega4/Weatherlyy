@@ -35,7 +35,7 @@ class CurrentWeather {
     
     let currentDate = dateFormatter.string(from: Date())
     
-    self._date = "Today, \(currentDate)"
+    self._date = "\(currentDate)"
     
     return _date
     
@@ -57,7 +57,7 @@ class CurrentWeather {
   
   
   
-  func downloadWeatherDetails(completed: DownloadComplete) {
+  func downloadWeatherDetails(completed: @escaping DownloadComplete) {
     
     let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
     
@@ -65,7 +65,7 @@ class CurrentWeather {
       
       let result = response.result
       
-      if let dict = result.value  as? Dictionary<String, AnyObject> {
+      if let dict = result.value as? Dictionary<String, AnyObject> {
         
         if let name = dict["name"] as? String {
           self._cityName = name.capitalized
@@ -73,12 +73,10 @@ class CurrentWeather {
         }
         
         if let weather = dict["weather"] as? [Dictionary<String, AnyObject>] {
-          
           if let main = weather[0]["main"] as? String {
             self._weatherType = main.capitalized
             print(self._weatherType)
           }
-          
         }
         
         if let main = dict["main"] as? Dictionary<String, AnyObject> {
@@ -89,20 +87,12 @@ class CurrentWeather {
             
             self._currentTemp = kelvinToFareheit
             print(self._currentTemp)
-            
           }
         }
-        
-        
       }
-      
+      completed()
     }
-    
-    completed()
-    
-    
-    
   }
-  
-  
 }
+
+

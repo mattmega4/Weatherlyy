@@ -26,32 +26,32 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k8J-XM-hBP">
                                 <rect key="frame" x="0.0" y="20" width="320" height="198"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obq-pk-9Qa">
-                                        <rect key="frame" x="113" y="35" width="94.5" height="10"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Location" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="obq-pk-9Qa">
+                                        <rect key="frame" x="113" y="35" width="94.5" height="15"/>
                                         <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-mq-8SA">
-                                        <rect key="frame" x="16.5" y="60" width="141" height="17.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-mq-8SA">
+                                        <rect key="frame" x="20" y="65" width="125" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Weather" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-Bs-NQI">
-                                        <rect key="frame" x="187" y="60" width="141" height="17.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Weather" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qkz-Bs-NQI">
+                                        <rect key="frame" x="174.5" y="65" width="125.5" height="17.5"/>
                                         <fontDescription key="fontDescription" name="Copperplate" family="Copperplate" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="84º" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VMp-cd-z6Y">
-                                        <rect key="frame" x="20" y="92.5" width="133.5" height="85.5"/>
-                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="84"/>
+                                        <rect key="frame" x="20" y="97.5" width="126" height="80.5"/>
+                                        <fontDescription key="fontDescription" name="Copperplate-Bold" family="Copperplate" pointSize="79"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0CZ-eL-lMI">
-                                        <rect key="frame" x="214.5" y="92.5" width="85.5" height="85.5"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0CZ-eL-lMI">
+                                        <rect key="frame" x="219.5" y="97.5" width="80.5" height="80.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="0CZ-eL-lMI" secondAttribute="height" multiplier="1:1" id="rOk-JU-b3c"/>
                                         </constraints>
@@ -59,11 +59,11 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.16450892857142857" green="0.61113281249999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstItem="0CZ-eL-lMI" firstAttribute="centerX" secondItem="Qkz-Bs-NQI" secondAttribute="centerX" id="028-fd-hKC"/>
                                     <constraint firstItem="Qkz-Bs-NQI" firstAttribute="centerY" secondItem="lMI-mq-8SA" secondAttribute="centerY" id="2Go-Uy-Bd1"/>
+                                    <constraint firstItem="0CZ-eL-lMI" firstAttribute="trailing" secondItem="Qkz-Bs-NQI" secondAttribute="trailing" id="5eu-sB-VY3"/>
+                                    <constraint firstItem="VMp-cd-z6Y" firstAttribute="leading" secondItem="lMI-mq-8SA" secondAttribute="leading" id="5gl-Gy-cXQ"/>
                                     <constraint firstAttribute="bottom" secondItem="VMp-cd-z6Y" secondAttribute="bottom" constant="20" id="75n-ua-xob"/>
                                     <constraint firstItem="0CZ-eL-lMI" firstAttribute="top" secondItem="Qkz-Bs-NQI" secondAttribute="bottom" constant="15" id="8hU-zu-U8B"/>
-                                    <constraint firstItem="VMp-cd-z6Y" firstAttribute="centerX" secondItem="lMI-mq-8SA" secondAttribute="centerX" id="98X-bM-6SA"/>
                                     <constraint firstItem="Qkz-Bs-NQI" firstAttribute="leading" secondItem="lMI-mq-8SA" secondAttribute="trailing" constant="30" id="FJ7-Kd-jKG"/>
                                     <constraint firstAttribute="trailing" secondItem="0CZ-eL-lMI" secondAttribute="trailing" constant="20" id="HJE-Aj-0Rw"/>
                                     <constraint firstItem="0CZ-eL-lMI" firstAttribute="height" secondItem="VMp-cd-z6Y" secondAttribute="height" id="QOh-xA-vEj"/>
@@ -71,6 +71,7 @@
                                     <constraint firstItem="VMp-cd-z6Y" firstAttribute="leading" secondItem="k8J-XM-hBP" secondAttribute="leading" constant="20" id="XhL-gq-E9c"/>
                                     <constraint firstItem="Qkz-Bs-NQI" firstAttribute="width" secondItem="lMI-mq-8SA" secondAttribute="width" id="a0b-fw-DMO"/>
                                     <constraint firstItem="obq-pk-9Qa" firstAttribute="top" secondItem="k8J-XM-hBP" secondAttribute="top" constant="35" id="b1L-uB-GAL"/>
+                                    <constraint firstAttribute="trailing" secondItem="Qkz-Bs-NQI" secondAttribute="trailing" constant="20" id="jJC-ty-Vch"/>
                                     <constraint firstItem="lMI-mq-8SA" firstAttribute="top" secondItem="obq-pk-9Qa" secondAttribute="bottom" constant="15" id="rS4-v5-fTY"/>
                                     <constraint firstItem="VMp-cd-z6Y" firstAttribute="top" secondItem="lMI-mq-8SA" secondAttribute="bottom" constant="15" id="rpM-un-H2b"/>
                                     <constraint firstAttribute="bottom" secondItem="0CZ-eL-lMI" secondAttribute="bottom" constant="20" id="tF3-Zu-Vnr"/>
