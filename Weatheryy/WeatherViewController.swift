@@ -8,7 +8,16 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+  
+  @IBOutlet weak var locationLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var currentWeatherLabel: UILabel!
+  @IBOutlet weak var currentTempLabel: UILabel!
+  @IBOutlet weak var currentWeatherImageView: UIImageView!
+  
+  @IBOutlet weak var tableView: UITableView!
+  
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,20 +25,22 @@ class WeatherViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+  
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 5
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
+    return cell
+  }
+  
+  
+  
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
