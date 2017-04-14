@@ -73,11 +73,10 @@
 		1D5ECA571EA041D200947A05 /* Weatheryy */ = {
 			isa = PBXGroup;
 			children = (
-				1D5ECA6D1EA041E300947A05 /* Model */,
+				1DFABE9A1EA0671D00BC9226 /* Model */,
 				1D5ECA6C1EA041E000947A05 /* View */,
 				1D5ECA6B1EA041DA00947A05 /* Controller */,
 				1D5ECA6A1EA041D700947A05 /* Additional Files */,
-				1DFABE9A1EA0671D00BC9226 /* Constants */,
 			);
 			path = Weatheryy;
 			sourceTree = "<group>";
@@ -109,20 +108,13 @@
 			name = View;
 			sourceTree = "<group>";
 		};
-		1D5ECA6D1EA041E300947A05 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		1DFABE9A1EA0671D00BC9226 /* Constants */ = {
+		1DFABE9A1EA0671D00BC9226 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1D5ECA701EA053E500947A05 /* Constants.swift */,
 				1D5ECA721EA05CEC00947A05 /* CurrentWeather.swift */,
 			);
-			name = Constants;
+			name = Model;
 			sourceTree = "<group>";
 		};
 		7334B2E86C9C6021452E836E /* Pods */ = {
