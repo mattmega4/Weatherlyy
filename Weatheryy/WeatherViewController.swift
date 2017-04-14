@@ -51,9 +51,7 @@ class WeatherViewController: UIViewController {
     currentTempLabel.text = "\(currentWeather.currentTemp)º"
     currentWeatherLabel.text = currentWeather.weatherType
     locationLabel.text = currentWeather.cityName
-    
-    
-    //    currentWeatherImageView.image = UIImage.init(named: currentWeather.weatherType)
+    currentWeatherImageView.image = UIImage.init(named: currentWeather.weatherType)
     
   }
   
@@ -76,6 +74,8 @@ class WeatherViewController: UIViewController {
             self.forecasts.append(forecast)
             print(obj)
           }
+          self.forecasts.remove(at: 0)
+          self.tableView.reloadData()
         }
       }
       completed()
@@ -100,15 +100,21 @@ extension WeatherViewController: UITableViewDataSource {
   
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 6
+    return forecasts.count
   }
   
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     
-    let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
-    
-    return cell
+    if let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath) as? WeatherTableViewCell {
+      
+      let forecast = forecasts[indexPath.row]
+      cell.configureCell(forecast: forecast)
+      return cell
+      
+    } else {
+      return WeatherTableViewCell()
+    }
     
   }
   

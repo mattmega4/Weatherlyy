@@ -82,16 +82,17 @@
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rls-8h-0Fu">
                                 <rect key="frame" x="0.0" y="218" width="320" height="262"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.9203962054" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.9203962054" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="62" id="ZJF-j4-TMk">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="62" id="ZJF-j4-TMk" customClass="WeatherTableViewCell" customModule="Weatheryy" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="320" height="62"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJF-j4-TMk" id="20t-Ss-aVF">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="61.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hKU-wZ-vay">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hKU-wZ-vay">
                                                     <rect key="frame" x="20" y="8" width="44" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="hKU-wZ-vay" secondAttribute="height" multiplier="1:1" id="hgv-ZM-cXt"/>
@@ -128,6 +129,13 @@
                                                 <constraint firstItem="yVp-Sf-1nO" firstAttribute="top" secondItem="hKU-wZ-vay" secondAttribute="top" id="xKg-DM-vti"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.9203962054" alpha="1" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dayLabel" destination="Smh-iC-LSu" id="PY3-qW-P3W"/>
+                                            <outlet property="lowAndHighLabel" destination="2nv-82-IBM" id="ODy-bO-58U"/>
+                                            <outlet property="weatherIconImageView" destination="hKU-wZ-vay" id="uWa-cU-jzg"/>
+                                            <outlet property="weatherTypeLabel" destination="yVp-Sf-1nO" id="35G-Em-0AV"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
