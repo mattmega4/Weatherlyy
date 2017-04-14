@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WeatherViewController: UIViewController {
   
   @IBOutlet weak var locationLabel: UILabel!
   @IBOutlet weak var dateLabel: UILabel!
@@ -23,6 +23,7 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+      print(CURRENT_WEATHER_URL)
     }
 
   
@@ -43,4 +44,17 @@ class WeatherViewController: UIViewController, UITableViewDelegate, UITableViewD
   
 
 
+}
+
+extension WeatherViewController: UITableViewDelegate {
+  
+  
+  
+  
+}
+
+extension WeatherViewController: UITableViewDataSource {
+  
+  
+  
 }
