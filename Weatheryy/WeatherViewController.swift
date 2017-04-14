@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class WeatherViewController: UIViewController {
   
@@ -19,6 +20,8 @@ class WeatherViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   var currentWeather: CurrentWeather!
+  var forecast: Forecast!
+  var forecasts = [Forecast]()
   
   
   override func viewDidLoad() {
@@ -27,27 +30,56 @@ class WeatherViewController: UIViewController {
     self.tableView.delegate = self
     self.tableView.dataSource = self
     
-    currentWeather = CurrentWeather()
-    currentWeather.downloadWeatherDetails {
-      self.updateMainUI()
-    }
-    
   }
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
+    currentWeather = CurrentWeather()
+    
+    currentWeather.downloadWeatherDetails {
+      self.downloadForecastData {
+        self.updateMainUI()
+      }
+      
+    }
   }
   
   func updateMainUI() {
     
     dateLabel.text = currentWeather.date
-    currentTempLabel.text = "\(currentWeather.currentTemp)"
+    currentTempLabel.text = "\(currentWeather.currentTemp)º"
     currentWeatherLabel.text = currentWeather.weatherType
     locationLabel.text = currentWeather.cityName
     
     
     //    currentWeatherImageView.image = UIImage.init(named: currentWeather.weatherType)
     
+  }
+  
+  
+  func downloadForecastData(completed: @escaping DownloadComplete) {
+    
+    let forecastURL = URL(string: FORECAST_URL)!
+    
+    Alamofire.request(forecastURL).responseJSON { response in
+      
+      let result = response.result
+      
+      if let dict = result.value as? Dictionary<String, AnyObject> {
+        
+        if let list = dict["list"] as? [Dictionary<String, AnyObject>] {
+          
+          for obj in list {
+            
+            let forecast = Forecast(weatherDict: obj)
+            self.forecasts.append(forecast)
+            print(obj)
+          }
+        }
+      }
+      completed()
+    }
   }
   
   
