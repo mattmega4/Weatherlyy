@@ -18,42 +18,55 @@ class WeatherViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  var currentWeather = CurrentWeather()
+  
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-      print(CURRENT_WEATHER_URL)
+    self.tableView.delegate = self
+    self.tableView.dataSource = self
+    
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    currentWeather.downloadWeatherDetails {
+      //
     }
+    
+  }
+  
 
+} // End of Class
+
+
+extension WeatherViewController: UITableViewDelegate {
+  // Did Select
+}
+
+extension WeatherViewController: UITableViewDataSource {
   
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
   }
   
+  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 5
+    return 6
   }
+  
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    
     let cell = tableView.dequeueReusableCell(withIdentifier: "weatherCell", for: indexPath)
+    
     return cell
+    
   }
   
   
-  
-
-
-}
-
-extension WeatherViewController: UITableViewDelegate {
-  
-  
-  
-  
-}
-
-extension WeatherViewController: UITableViewDataSource {
   
   
   

@@ -28,16 +28,16 @@ class CurrentWeather {
     if _date == nil {
       _date = ""
     }
-      let dateFormatter = DateFormatter()
+    let dateFormatter = DateFormatter()
     
-      dateFormatter.dateStyle = .long
-      dateFormatter.timeStyle = .none
+    dateFormatter.dateStyle = .long
+    dateFormatter.timeStyle = .none
     
-      let currentDate = dateFormatter.string(from: Date())
+    let currentDate = dateFormatter.string(from: Date())
     
     self._date = "Today, \(currentDate)"
     
-      return _date
+    return _date
     
   }
   
@@ -55,6 +55,24 @@ class CurrentWeather {
     return _currentTemp
   }
   
+  
+  
+  func downloadWeatherDetails(completed: DownloadComplete) {
+    
+    let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
+    
+    Alamofire.request(currentWeatherURL).responseJSON { response in
+      
+      let result = response.result
+      print(response)
+      
+    }
+    
+    completed()
+    
+
+    
+  }
   
   
 }
