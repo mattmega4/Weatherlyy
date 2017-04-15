@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import Alamofire
 
 class WeatherViewController: UIViewController {
@@ -19,6 +20,9 @@ class WeatherViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  let locationManager = CLLocationManager()
+  var currentLocation: CLLocation!
+  
   var currentWeather: CurrentWeather!
   var forecast: Forecast!
   var forecasts = [Forecast]()
@@ -29,6 +33,10 @@ class WeatherViewController: UIViewController {
     
     self.tableView.delegate = self
     self.tableView.dataSource = self
+    self.locationManager.delegate = self
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+    self.locationManager.requestWhenInUseAuthorization()
+    
     
   }
   
@@ -36,13 +44,12 @@ class WeatherViewController: UIViewController {
     super.viewWillAppear(animated)
     
     currentWeather = CurrentWeather()
-    
-    currentWeather.downloadWeatherDetails {
-      self.downloadForecastData {
-        self.updateMainUI()
-      }
-      
-    }
+    self.locationManager.startMonitoringSignificantLocationChanges()
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    locationAuthStatus()
   }
   
   func updateMainUI() {
@@ -58,9 +65,9 @@ class WeatherViewController: UIViewController {
   
   func downloadForecastData(completed: @escaping DownloadComplete) {
     
-    let forecastURL = URL(string: FORECAST_URL)!
+//    let forecastURL = URL(string: FORECAST_URL)!
     
-    Alamofire.request(forecastURL).responseJSON { response in
+    Alamofire.request(FORECAST_URL).responseJSON { response in
       
       let result = response.result
       
@@ -82,6 +89,27 @@ class WeatherViewController: UIViewController {
     }
   }
   
+  
+  func locationAuthStatus() {
+    
+    if CLLocationManager.authorizationStatus() == .authorizedWhenInUse {
+      currentLocation = locationManager.location
+      Location.sharedInstance.latitude = currentLocation.coordinate.latitude
+      Location.sharedInstance.longitutde = currentLocation.coordinate.longitude
+      
+      currentWeather.downloadWeatherDetails {
+        self.downloadForecastData {
+          self.updateMainUI()
+        }
+      }
+      
+    } else {
+      locationManager.requestWhenInUseAuthorization()
+      locationAuthStatus()
+    }
+      
+    
+  }
   
   
   
@@ -117,7 +145,11 @@ extension WeatherViewController: UITableViewDataSource {
     }
     
   }
-  
+
+}
+
+
+extension WeatherViewController: CLLocationManagerDelegate {
   
   
   

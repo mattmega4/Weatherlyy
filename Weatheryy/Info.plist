@@ -39,5 +39,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Weatherlyy requests your location to provide accurate weather conditions for your current location.</string>
 </dict>
 </plist>
